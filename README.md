@@ -1,7 +1,7 @@
-Finis
+FINIS
 =====
 
-I'm tired of stupid INI knockoffs. Finis!
+I'm tired of stupid INI knockoffs. FINIS!
 
 
 ### Basic format
@@ -38,6 +38,11 @@ Translates to JSON as
 
 Subdivisions are indention sensitive. This allows them to be easily recognized.
 
+```json
+{ "division1": { "subdivision1": { "key1":"value1", "key2":"value2" },
+                 "subdivision2": { "key1":"value1", "key2":"value2" } } }
+```
+
 ### Tables
 
 ```
@@ -48,6 +53,10 @@ valueB1 valueB2
 
 Values are separate by spaces. Use double quotes if space or `=` sign is needed in values.
 
+```json
+{ "division1": [ [ "valueA1", "valueA2" ],
+                 [ "valueB1", "valueB2" ] ] }
+```
 
 ### Key Tables
 
@@ -58,25 +67,49 @@ valueA1 valueA2
 valueB1 valueB2
 ```
 
+**TODO: There may be too much ambiguity here, as it disallows single column key tables.**
+
 Values do not have to line up with columns but it is much easier to read when they do, so it is encoruaged.
+
+Translates to JSON as 
+
+```json
+{ "division1": [ { "key1":"valueA1", "key2":"valueA2" },
+                 { "key1":"valueB1", "key2":"valueB2" } ]
+```
 
 ### Inline Lists
 
 ```
 [division1]
-key1=[value1,value2]
+key1=[valueA1,valueA2]
+key2=[valueB1,valueB2]
+
 ```
 
 Inline lists are ....
+
+
+```json
+{ "division1": { "key1": [ "valueA1", "valueA2" ],
+                 "key2": [ "valueB1", "valueB2" ] } }
+```
+
 
 ### Inline Tables
 
 ```
 [division1]
-key1={key1=value1,key2=value2}
+key1={keyA1=valueA1,keyA2=valueA2}
+key2={keyB1=valueB1,keyB2=valueB2}
 ```
 
 Inline key sets ...
+
+```json
+{ "division1": { "key1": { "keyA1": "valueA1", "keyA2": "valueA2" }, 
+                 "key2": { "keyA1": "valueA1", "keyA2": "valueA2" } } }
+```
 
 
 ### Multiline values
@@ -97,7 +130,11 @@ One as many line as you need.
 """
 ```
 
-This syntax is still a little up in the air. We'll see.
+**TODO: This syntax is still a little up in the air. We'll see.**
+
+```json
+{ "division1": "Type whatever is needed.\nAs many lines as you need." }
+```
 
 
 ### Comments

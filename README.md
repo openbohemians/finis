@@ -134,8 +134,8 @@ Inline key sets are key-value pairs seprated by commas and enclosed in curly bra
 
 ```
 [division1]
-key1=|Type whatever is needed.
-     |One as many line as you need.
+key1=|Type whatever you want.
+     |As many lines as you need.
 ```
 
 or
@@ -143,13 +143,21 @@ or
 ```
 [division1]
 key1="""
-Type whatever is needed.
-One as many line as you need.
+Type whatever you want.
+As many lines as you need.
 """
 ```
 
 ```json
-{ "division1": "Type whatever is needed.\nAs many lines as you need." }
+{ "division1": { "key1": "Type whatever is needed.\nAs many lines as you need." } }
+```
+
+Another possible syntax:
+
+```
+["divison1"]
+Type whatever you want.
+As many lines as you need.
 ```
 
 **TODO: This syntax is still a little up in the air. We'll see.**

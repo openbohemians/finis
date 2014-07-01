@@ -25,7 +25,7 @@ Translates to JSON as
 
 ### Subdivisions
 
-```ini
+```
 [division1] ::
   [subdivison1]
   key1=value1
@@ -40,7 +40,7 @@ Subdivisions are indention sensitive. This allows them to be easily recognized.
 
 ### Tables
 
-```ini
+```
 [division1]
 valueA1 valueA2
 valueB1 valueB2
@@ -51,7 +51,7 @@ Values are separate by spaces. Use double quotes if space or `=` sign is needed 
 
 ### Key Tables
 
-```ini
+```
 [division1]
 [key1]  [key2]
 valueA1 valueA2

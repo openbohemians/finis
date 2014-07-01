@@ -4,7 +4,7 @@ FINIS
 I'm tired of stupid INI knockoffs. FINIS!
 
 
-### Basic format
+### Basic Format
 
 ```
 [division1]
@@ -16,17 +16,18 @@ key1=value1
 key2=value1
 ```
 
-Translates to JSON as 
-
 ```json
 { "division1": { "key1":"value1", "key2":"value2" },
   "division2": { "key1":"value1", "key2":"value2" } }
 ```
 
+Yea, this is just INI.
+
+
 ### Subdivisions
 
 ```
-[division1] ::
+[division1]
   [subdivison1]
   key1=value1
   key2=value2
@@ -36,12 +37,13 @@ Translates to JSON as
   key2=value2
 ```
 
-Subdivisions are indention sensitive. This allows them to be easily recognized.
-
 ```json
 { "division1": { "subdivision1": { "key1":"value1", "key2":"value2" },
                  "subdivision2": { "key1":"value1", "key2":"value2" } } }
 ```
+
+Subdivisions are indention sensitive. This allows them to be easily recognized.
+
 
 ### Tables
 
@@ -51,12 +53,13 @@ valueA1 valueA2
 valueB1 valueB2
 ```
 
-Values are separate by spaces. Use double quotes if space or `=` sign is needed in values.
-
 ```json
 { "division1": [ [ "valueA1", "valueA2" ],
                  [ "valueB1", "valueB2" ] ] }
 ```
+
+Values are separate by spaces. Use double quotes if space or `=` sign is needed in values.
+
 
 ### Key Tables
 
@@ -67,16 +70,17 @@ valueA1 valueA2
 valueB1 valueB2
 ```
 
+```json
+{ "division1": [ { "key1":"valueA1", "key2":"valueA2" },
+                 { "key1":"valueB1", "key2":"valueB2" } ]
+```
+
 **TODO: There may be too much ambiguity here, as it disallows single column key tables.**
 
 Values do not have to line up with columns but it is much easier to read when they do, so it is encoruaged.
 
 Translates to JSON as 
 
-```json
-{ "division1": [ { "key1":"valueA1", "key2":"valueA2" },
-                 { "key1":"valueB1", "key2":"valueB2" } ]
-```
 
 ### Inline Lists
 
@@ -87,13 +91,13 @@ key2=[valueB1,valueB2]
 
 ```
 
-Inline lists are ....
-
-
 ```json
 { "division1": { "key1": [ "valueA1", "valueA2" ],
                  "key2": [ "valueB1", "valueB2" ] } }
 ```
+
+
+Inline lists are are command separated values enclosed in square brackets.
 
 
 ### Inline Tables
@@ -104,12 +108,12 @@ key1={keyA1=valueA1,keyA2=valueA2}
 key2={keyB1=valueB1,keyB2=valueB2}
 ```
 
-Inline key sets ...
-
 ```json
 { "division1": { "key1": { "keyA1": "valueA1", "keyA2": "valueA2" }, 
                  "key2": { "keyA1": "valueA1", "keyA2": "valueA2" } } }
 ```
+
+Inline key sets are key-value pairs seprated by commas and enclosed in curly brackets.
 
 
 ### Multiline values
@@ -130,11 +134,13 @@ One as many line as you need.
 """
 ```
 
-**TODO: This syntax is still a little up in the air. We'll see.**
-
 ```json
 { "division1": "Type whatever is needed.\nAs many lines as you need." }
 ```
+
+**TODO: This syntax is still a little up in the air. We'll see.**
+
+Multiline values are strings...
 
 
 ### Comments

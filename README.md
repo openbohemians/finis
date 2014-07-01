@@ -93,8 +93,6 @@ valueB1 valueB2
 
 Values do not have to line up with columns but it is much easier to read when they do, so it is encoruaged.
 
-Translates to JSON as 
-
 
 ### Inline Lists
 
@@ -130,29 +128,34 @@ key2={keyB1=valueB1,keyB2=valueB2}
 Inline key sets are key-value pairs seprated by commas and enclosed in curly brackets.
 
 
-### Multiline values
+### Multiline Values
 
 ```
 [division1]
-key1=|Type whatever you want.
-     |As many lines as you need.
+key1="Type whatever you want.
+     "As many lines as you need.
 ```
+
+(NOTE: I first considered `|` instead of `"`. Would that be better?)
 
 or
 
 ```
 [division1]
-key1="""
-Type whatever you want.
-As many lines as you need.
-"""
+key1="Type whatever you want."
+     "As many lines as you need."
 ```
 
 ```json
 { "division1": { "key1": "Type whatever is needed.\nAs many lines as you need." } }
 ```
 
-Another possible syntax:
+**TODO: This syntax is still a little up in the air. We'll see.**
+
+Multline values ...
+
+
+### Outboard Multiline Strings
 
 ```
 ["divison1"]
@@ -160,9 +163,15 @@ Type whatever you want.
 As many lines as you need.
 ```
 
-**TODO: This syntax is still a little up in the air. We'll see.**
+```json
+{ "division1": "Type whatever is needed.\nAs many lines as you need." }
+```
 
 Multiline values are strings...
+
+Square brackets at the start of line need to be escaped.
+
+TODO: Can this be generaized to all types? Should it?
 
 
 ### Comments

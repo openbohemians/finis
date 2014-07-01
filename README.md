@@ -48,9 +48,11 @@ NOTE: THe alternate approach, if we don't want indention, is to use double brack
 
 ```
 [division1]
+
 [[subdivison1]]
 key1=value1
 key2=value2
+
 [[subdivison2]]
 key1=value1
 key2=value2

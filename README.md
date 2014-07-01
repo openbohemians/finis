@@ -1,7 +1,7 @@
-finis
+Finis
 =====
 
-We're tired of stupid INI knockoffs. Finis!
+I'm tired of stupid INI knockoffs. Finis!
 
 
 ### Basic format
@@ -19,7 +19,8 @@ key2=value1
 Translates to JSON as 
 
 ```json
-{ "division1": { "key1":"value1", "key2":"value2" }, "division2": { "key1":"value1", "key2":"value2" } }
+{ "division1": { "key1":"value1", "key2":"value2" },
+  "division2": { "key1":"value1", "key2":"value2" } }
 ```
 
 ### Subdivisions
@@ -35,7 +36,7 @@ Translates to JSON as
   key2=value2
 ```
 
-Subdivisions are indention sensitive. This allows them to be quickly recognized.
+Subdivisions are indention sensitive. This allows them to be easily recognized.
 
 ### Tables
 
@@ -58,6 +59,25 @@ valueB1 valueB2
 ```
 
 Values do not have to line up with columns but it is much easier to read when they do, so it is encoruaged.
+
+### Inline Lists
+
+```
+[division1]
+key1=[value1,value2]
+```
+
+Inline lists are ....
+
+### Inline Tables
+
+```
+[division1]
+key1={key1=value1,key2=value2}
+```
+
+Inline key sets ...
+
 
 ### Multiline values
 
@@ -84,15 +104,27 @@ This syntax is still a little up in the air. We'll see.
 
 ```
 ; This is a comment.
-# So is this.
 ```
 
-Finis documents should use one or the other, not both. You suck if you use both.
+```
+# And soo is this.
+```
+
+Finis documents should use one or the other, never both. You suck if you use both.
 
 We will consider block comments in the future, but I seriously doubt they are needed.
 
 
 ## Value Types
+
+### Boolean
+
+```
+/true|false|yes|no/
+```
+
+Boolean values are distingushed by specific words, `true`, `false`, `yes` or `no`. They cannot be quotes, as that would make them strings.
+
 
 ### Numbers
 
@@ -104,6 +136,10 @@ Number are just as you'd expect. Scientific notation is also supported.
 
 
 ### Dates and Times
+
+```
+/(\d\d\d\d-\d\d-\d\d(\ |T)(\d\d:\d\d(:\d\d)?))/
+```
 
 Dates are simply a sequence of digits seprated by dashes.
 
@@ -117,7 +153,7 @@ And times are the same separated by colons.
 /(\d\d:\d\d(:\d\d)?)/
 ```
 
-They can be given together by combinung them with spaces or the letter `T`.
+They can be given together by combinung them with space or the letter `T`.
 
 Basically this is a really simplified take on the main parts of ISO 8601.
 
@@ -128,7 +164,7 @@ Basically this is a really simplified take on the main parts of ISO 8601.
 /["](.*)["]/
 ```
 
-All string value should be in double quotes, or use the multiline notation.
+All string value *should* be in double quotes, or use the multiline notation. But undecorated strings are also acceptable as long as they cause no parsing conflicts. Undecorated string have to escape syntax.
 
 TODO: Should all strings be in quotes, period? But then you'd just have errors when people forgot.
 

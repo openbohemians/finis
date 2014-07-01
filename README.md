@@ -44,6 +44,18 @@ Yea, this is just INI.
 
 Subdivisions are indention sensitive. This allows them to be easily recognized.
 
+NOTE: THe alternate approach, if we don't want indention, is to use double brackets.
+
+```
+[division1]
+[[subdivison1]]
+key1=value1
+key2=value2
+[[subdivison2]]
+key1=value1
+key2=value2
+```
+
 
 ### Tables
 

@@ -75,8 +75,6 @@ valueB1 valueB2
 Values are separate by spaces. Use double quotes if space or `=` sign is needed in values.
 
 
-### Key Tables
-
 ```
 [division1]
 [key1]  [key2]
@@ -90,6 +88,18 @@ valueB1 valueB2
 ```
 
 **TODO: There may be too much ambiguity here, as it disallows single column key tables.**
+
+```
+[division1]
+        [keyY1] [keyY2]
+keyX1 = valueA1 valueA2
+keyX2 = valueB1 valueB2
+```
+
+```json
+{ "division1": { "keyX1": { "keyY1":"valueA1", "keyY2":"valueA2" },
+                 "keyX2": { "keyY1":"valueB1", "keyY2":"valueB2" } }
+```
 
 Values do not have to line up with columns but it is much easier to read when they do, so it is encoruaged.
 

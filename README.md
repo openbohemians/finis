@@ -52,15 +52,15 @@ TODO: The alternate approach, if we don't want indention, is to use double brack
 ```ini
 [division1]
 
-  [[subdivison1]]
-  
-    [[[subsubdivison]]]
-    key1=value1
-    key2=value2
+[[subdivison1]]
 
-  [[subdivison2]]
-  key1=value1
-  key2=value2
+[[[subsubdivison]]]
+key1=value1
+key2=value2
+
+[[subdivison2]]
+key1=value1
+key2=value2
 ```
 
 

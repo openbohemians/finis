@@ -30,8 +30,10 @@ Yea, this is just INI.
 [division1]
 
   [subdivison1]
-  key1=value1
-  key2=value2
+  
+    [subsubdivision]
+    key1=value1
+    key2=value2
 
   [subdivison2]
   key1=value1
@@ -51,8 +53,10 @@ TODO: The alternate approach, if we don't want indention, is to use double brack
 [division1]
 
   [[subdivison1]]
-  key1=value1
-  key2=value2
+  
+    [[[subsubdivison]]]
+    key1=value1
+    key2=value2
 
   [[subdivison2]]
   key1=value1
@@ -109,8 +113,8 @@ Values do not have to line up with columns but it is much easier to read when th
 
 ```
 [division1]
-key1=[valueA1,valueA2]
-key2=[valueB1,valueB2]
+key1=(valueA1,valueA2)
+key2=(valueB1,valueB2)
 
 ```
 
@@ -120,7 +124,7 @@ key2=[valueB1,valueB2]
 ```
 
 
-Inline lists are are command separated values enclosed in square brackets.
+Inline lists are are comma separated values enclosed by parenthesis.
 
 
 ### Inline Tables

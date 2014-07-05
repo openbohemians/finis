@@ -6,7 +6,7 @@ I'm tired of stupid INI knockoffs. FINIS!
 
 ### Basic Format
 
-```
+```ini
 [division1]
 key1=value1
 key2=value2
@@ -26,8 +26,9 @@ Yea, this is just INI.
 
 ### Subdivisions
 
-```
+```ini
 [division1]
+
   [subdivison1]
   key1=value1
   key2=value2
@@ -44,18 +45,18 @@ Yea, this is just INI.
 
 Subdivisions are indention sensitive. This allows them to be easily recognized.
 
-NOTE: THe alternate approach, if we don't want indention, is to use double brackets.
+TODO: The alternate approach, if we don't want indention, is to use double brackets.
 
-```
+```ini
 [division1]
 
-[[subdivison1]]
-key1=value1
-key2=value2
+  [[subdivison1]]
+  key1=value1
+  key2=value2
 
-[[subdivison2]]
-key1=value1
-key2=value2
+  [[subdivison2]]
+  key1=value1
+  key2=value2
 ```
 
 
